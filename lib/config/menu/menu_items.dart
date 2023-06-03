@@ -18,15 +18,15 @@ class MenuItem {
 
 const appMenuItems = <MenuItem>[
   MenuItem(
-    title: 'Viajar',
-    subtitle: 'Viajar como acompañante',
-    link: '/drive',
+    title: 'Pasajero',
+    subtitle: 'Viajar como pasajero',
+    link: '/passenger',
     icon: Icons.person_add,
   ),
   MenuItem(
-    title: 'Transportar',
+    title: 'Conductor',
     subtitle: 'Definir ruta y publicar',
-    link: '/transport',
+    link: '/driver',
     icon: Icons.drive_eta
   ),
 ];

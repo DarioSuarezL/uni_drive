@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uni_drive/config/presentation/screens/driver/driver_screen.dart';
 import 'package:uni_drive/config/presentation/screens/home/home_screen.dart';
+import 'package:uni_drive/config/presentation/screens/passenger/passenger_screen.dart';
 import 'package:uni_drive/config/theme/app_theme.dart';
 
 void main() {
@@ -13,12 +15,12 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(selectedColor: 7).getTheme(),
+      theme: AppTheme(selectedColor: 2).getTheme(),
        home: const HomeScreen(), //Scaffold(
-      //   body: Center(
-      //     child: FilledButton(child: Text('Hello World!'), onPressed: () {},),
-      //   ),
-      // ),
+        routes: {
+          '/passenger':(context) => const PassengerScreen(),
+          '/driver':(context) => const DriverScreen(),
+        }
     );
   }
 }
