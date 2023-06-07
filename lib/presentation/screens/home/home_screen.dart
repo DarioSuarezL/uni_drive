@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uni_drive/config/menu/menu_items.dart';
-import 'package:uni_drive/config/presentation/screens/passenger/passenger_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -47,16 +47,11 @@ class _CustomListTile extends StatelessWidget {
 
     return ListTile(
       leading: Icon(menuItem.icon, color: colors.primary),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(Icons.arrow_forward_ios),
       title: Text(menuItem.title, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(menuItem.subtitle),
       onTap: (){
-        // Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (context) => const PassengerScreen()
-        //   )
-        // );
-        Navigator.pushNamed(context, menuItem.link);
+        context.push(menuItem.link);
       }
     );
   }
