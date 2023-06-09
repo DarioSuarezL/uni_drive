@@ -3,7 +3,18 @@ import 'package:uni_drive/presentation/screens/screens.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
+  initialLocation: '/login',
   routes: [
+    GoRoute(
+      name: LoginScreen.routeName,
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      name: RegisterScreen.routeName,
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
+    ),
     GoRoute(
       name: HomeScreen.routeName,
       path: '/home',
