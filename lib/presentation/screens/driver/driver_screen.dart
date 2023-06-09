@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DriverScreen extends StatelessWidget {
+
+  static const String routeName = 'driver_screen';
+
   const DriverScreen({super.key});
 
   @override

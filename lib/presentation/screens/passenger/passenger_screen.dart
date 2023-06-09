@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PassengerScreen extends StatelessWidget {
+
+  static const String routeName = 'passenger_screen';
+
   const PassengerScreen({super.key});
 
   @override

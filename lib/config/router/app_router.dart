@@ -5,16 +5,19 @@ import 'package:uni_drive/presentation/screens/screens.dart';
 final appRouter = GoRouter(
   routes: [
     GoRoute(
-      path: '/',
-      builder: (context, state) => HomeScreen(),
+      name: HomeScreen.routeName,
+      path: '/home',
+      builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
+      name: PassengerScreen.routeName,
       path: '/passenger',
-      builder: (context, state) => PassengerScreen(),
+      builder: (context, state) => const PassengerScreen(),
     ),
     GoRoute(
+      name: DriverScreen.routeName,
       path: '/driver',
-      builder: (context, state) => DriverScreen(),
+      builder: (context, state) => const DriverScreen(),
     ),
   ],
 );

@@ -3,6 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:uni_drive/config/menu/menu_items.dart';
 
 class HomeScreen extends StatelessWidget {
+
+  static const String routeName = 'home_screen';
+
   const HomeScreen({super.key});
 
   @override
@@ -51,7 +54,8 @@ class _CustomListTile extends StatelessWidget {
       title: Text(menuItem.title, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(menuItem.subtitle),
       onTap: (){
-        context.push(menuItem.link);
+        // context.push(menuItem.link);
+        context.pushNamed(menuItem.routeName);
       }
     );
   }
