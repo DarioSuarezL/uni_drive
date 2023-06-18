@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:uni_drive/config/theme/app_theme.dart';
+import 'package:uni_drive/providers/users_provider.dart';
 import 'config/router/app_router.dart';
 
 void main() {
@@ -11,10 +13,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: appRouter,
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme(selectedColor: 2).getTheme(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UsersProvider()),
+      ],
+      child: MaterialApp.router(
+        routerConfig: appRouter,
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme(selectedColor: 2).getTheme(),
+      ),
     );
   }
 }

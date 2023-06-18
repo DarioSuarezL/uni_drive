@@ -11,6 +11,9 @@
 migrate_working_dir/
 .vscode/
 
+# Enviroments
+lib/global/
+
 # IntelliJ related
 *.iml
 *.ipr

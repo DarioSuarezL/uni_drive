@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:uni_drive/config/menu/menu_items.dart';
+import 'package:uni_drive/providers/users_provider.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -10,9 +12,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final usersProvider = Provider.of<UsersProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('UniDrive'),
+        title: Text('UniDrive - ${usersProvider.user!.name}'),
       ),
       body: const _HomeView(),
     );

@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:uni_drive/presentation/screens/screens.dart';
+import 'package:uni_drive/screens/screens.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
