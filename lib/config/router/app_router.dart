@@ -3,7 +3,7 @@ import 'package:uni_drive/screens/screens.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
-  initialLocation: '/login',
+  initialLocation: '/map',
   routes: [
     GoRoute(
       name: LoginScreen.routeName,
@@ -29,6 +29,11 @@ final appRouter = GoRouter(
       name: DriverScreen.routeName,
       path: '/driver',
       builder: (context, state) => const DriverScreen(),
+    ),
+    GoRoute(
+      name: MapScreen.routeName,
+      path: '/map',
+      builder: (context, state) => const MapScreen(),
     ),
   ],
 );

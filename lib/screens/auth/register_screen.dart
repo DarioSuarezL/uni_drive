@@ -42,7 +42,7 @@ class _RegisterView extends StatelessWidget {
     String registro = '';
     String numero_telefono = '';
     String password = '';
-    String confirm_password = '';
+    // String confirm_password = '';
     String foto = 'example.jpg';
     String foto_horario = 'example.jpg';
 
@@ -80,8 +80,11 @@ class _RegisterView extends StatelessWidget {
                   if (value == null || value.isEmpty) {
                     return 'Por favor ingrese su nombre';
                   }
-                  if (value.length < 3 || value.length > 30) {
+                  if (value.length < 3) {
                     return 'El nombre debe tener al menos 3 caracteres';
+                  }
+                  if (value.length > 50) {
+                    return 'El nombre debe tener menos de 50 caracteres';
                   }
                   return null;
                 },
@@ -257,7 +260,7 @@ class _RegisterView extends StatelessWidget {
                   )
                 ),
                 onChanged: (value){
-                  confirm_password = value;
+                  // confirm_password = value;
                 },
               ),
 
@@ -277,10 +280,24 @@ class _RegisterView extends StatelessWidget {
                     final f = foto;
                     final fh = foto_horario;
 
+                    final scaf = ScaffoldMessenger.of(context);
+                    // final nav = Navigator.of(context);
+
                     User user = await usersProvider.registerUser(n, e, p, r, t, f, fh);
 
+                    if(user.id == -1){
+                      scaf.showSnackBar(
+                        SnackBar(
+                          backgroundColor: colors.primary,
+                          content: const Center(child: Text('Algo está mal, porfavor vuelva a ingresar sus datos')),
+                        )
+                      );
+                    }
+
                     if(user.id != -1){
-                      context.pushNamed('home_screen');
+                      await Future.microtask(() {
+                        context.pushNamed('home_screen');
+                      });
                     }
 
 

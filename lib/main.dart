@@ -18,6 +18,8 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UsersProvider()),
       ],
       child: MaterialApp.router(
+        // routerDelegate: appRouter.routerDelegate,
+        // routeInformationParser: appRouter.routeInformationParser,
         routerConfig: appRouter,
         debugShowCheckedModeBanner: false,
         theme: AppTheme(selectedColor: 2).getTheme(),

@@ -137,13 +137,27 @@ class _LoginView extends StatelessWidget {
                   if(_formKey.currentState!.validate()){
                     final reg = registro;
                     final pass = password;
+
+                    final scaf = ScaffoldMessenger.of(context);
+                    // final nav = Navigator.of(context);
+
                     User user = await usersProvider.loginUser(reg, pass);
+                    
 
-
-                    if(user.id != -1){
-                      context.pushNamed('home_screen');
+                    if(user.id == -1){
+                      scaf.showSnackBar(
+                        SnackBar(
+                          backgroundColor: colors.primary,
+                          content: const Center(child: Text('Algo está mal, porfavor vuelva a ingresar sus credenciales')),
+                        )
+                      );
                     }
-
+                  
+                    if (user.id != -1) {
+                      await Future.microtask(() {
+                        context.pushNamed('home_screen');
+                      });
+                    }
 
                   }else{
                     ScaffoldMessenger.of(context).showSnackBar(
